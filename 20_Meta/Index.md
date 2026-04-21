@@ -11,4 +11,4 @@
 ## 📊 시스템 상태
 - **Last Reinforced:** 2026-04-21
 - **GitHub Sync:** Connected (https://github.com/kong0029-wq/memory.git)
-- **Graph Nodes:** 1 (Skills/P-Reinforce_Skill.md)
+- **Graph Nodes:** 2 (Skills/Image_Comparison_Prompt_Patterns.md 추가)

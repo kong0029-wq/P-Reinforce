@@ -1,4 +1,9 @@
 {
-  "nodes": [],
-  "edges": []
+  "nodes": [
+    { "id": "P-Reinforce_Skill", "path": "10_Wiki/Skills/P-Reinforce_Skill.md", "tags": ["agent", "architecture"] },
+    { "id": "Image_Comparison_Prompt_Patterns", "path": "10_Wiki/Skills/Image_Comparison_Prompt_Patterns.md", "tags": ["prompt-engineering", "image-generation"] }
+  ],
+  "edges": [
+    { "source": "Image_Comparison_Prompt_Patterns", "target": "P-Reinforce_Skill", "type": "related" }
+  ]
 }
