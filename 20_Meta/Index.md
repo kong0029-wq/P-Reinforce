@@ -10,5 +10,5 @@
 
 ## 📊 시스템 상태
 - **Last Reinforced:** 2026-04-21
-- **GitHub Sync:** Connected
-- **Graph Nodes:** 0
+- **GitHub Sync:** Connected (https://github.com/kong0029-wq/memory.git)
+- **Graph Nodes:** 1 (Skills/P-Reinforce_Skill.md)
