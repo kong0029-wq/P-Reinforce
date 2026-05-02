@@ -1,0 +1,52 @@
+{
+  "date": "2026-04-29",
+  "project": "20260426예약프로그램v2",
+  "summary": "사용자 및 사업자 역할 분리, 로그인 기록 시스템 구축 및 사업자 전용 대시보드 구현",
+  "completed_tasks": [
+    {
+      "task": "프로필 수정 오류 해결",
+      "details": "localhost:5174 리다이렉트 포트 오류 해결을 위해 <form> 제출 방식을 onClick 이벤트 처리 방식으로 리팩토링"
+    },
+    {
+      "task": "역할 기반 로그인 시스템 구현",
+      "details": "회원가입 시 '일반 사용자'와 '사업자' 선택 기능 추가. 역할(role)에 따른 Firestore 데이터 구조 설계"
+    },
+    {
+      "task": "로그인 기록 및 추적 시스템",
+      "details": "lastLoginAt(최근 접속), loginCount(접속 횟수), loginLogs(상세 로그 컬렉션) 기록 기능 구현"
+    },
+    {
+      "task": "사업자 전용 대시보드 구축",
+      "details": "/business 경로의 전용 대시보드(수업 관리, 접속 이력, 업체 정보 설정) 생성"
+    },
+    {
+      "task": "UI/UX 개선",
+      "details": "회원가입 시 업체명 입력을 제외하고 대시보드 내 설정에서 등록하도록 프로세스 간소화"
+    }
+  ],
+  "technical_context": {
+    "roles": {
+      "USER": "일반 사용자 (로그인 시 /home 이동)",
+      "BUSINESS": "사업자 (로그인 시 /business 이동)",
+      "ADMIN": "최고 관리자 (로그인 시 /admin 이동)"
+    },
+    "new_files": [
+      "src/pages/BusinessDashboard.tsx"
+    ],
+    "modified_files": [
+      "src/pages/Login.tsx",
+      "src/pages/Home.tsx",
+      "src/pages/AdminDashboard.tsx",
+      "src/App.tsx"
+    ],
+    "firebase_updates": {
+      "collections": ["users", "classes", "loginLogs"],
+      "user_fields": ["role", "businessName", "lastLoginAt", "loginCount"]
+    }
+  },
+  "next_steps": [
+    "사업자 대시보드 내 예약 현황 상세 보기 기능",
+    "일반 사용자의 업체 검색 및 예약 기능 고도화",
+    "관리자 페이지의 사용자 관리 및 사업자 승인 로직 검토"
+  ]
+}

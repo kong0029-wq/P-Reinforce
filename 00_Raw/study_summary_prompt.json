@@ -1,0 +1,34 @@
+{
+  "project_name": "Smart Booking System",
+  "tech_stack": {
+    "frontend": "React with TypeScript",
+    "styling": "Tailwind CSS",
+    "icons": "Material Symbols Outlined",
+    "animations": "Framer Motion",
+    "backend_service": "Firebase (Authentication, Firestore)"
+  },
+  "key_implementations": [
+    {
+      "feature": "Landing Page Design",
+      "details": "Created a high-fidelity hero section using gradients (bg-gradient-to-br), shadows (shadow-2xl), and glassmorphism without external images."
+    },
+    {
+      "feature": "Admin Dashboard",
+      "details": "Implemented real-time class management, statistics (today's classes, total reservations), and a professional sidebar navigation."
+    },
+    {
+      "feature": "Reservation Logic",
+      "details": "Built a multi-step booking process using Firestore transactions to ensure data integrity (ticket deduction and capacity check)."
+    },
+    {
+      "feature": "Auth & Profile Management",
+      "details": "Developed a cohesive Login/Join system with role-based routing (ADMIN vs USER) and profile update functionality (Firestore + Firebase Auth synchronization)."
+    }
+  ],
+  "troubleshooting_and_tips": {
+    "finding_code": "How to map browser elements to VS Code using unique Tailwind classes and 'Material Symbols' keywords.",
+    "common_errors": "Understanding 500 server errors and mapping 'class' in browser to 'className' in React.",
+    "asset_management": "Best practices for importing images via 'src/assets' vs 'public' folders."
+  },
+  "future_development_prompt": "이 JSON 파일의 맥락을 바탕으로, 사용자가 수업을 취소했을 때 이용권을 다시 복구해주고 예약 내역에서 삭제하는 '예약 취소 로직'을 MyReservations.tsx에 추가해줘."
+}
