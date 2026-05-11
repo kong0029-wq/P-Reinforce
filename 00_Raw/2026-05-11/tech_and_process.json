@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "name": "PDF 변환 연금술사",
+    "concept": "부정적인 무의식을 긍정적으로 변화시키는 과정을 은유하여, 여러 PDF에서 불필요한 페이지를 직관적으로 덜어내고 핵심만 병합하는 브라우저 기반 웹 애플리케이션",
+    "architecture": "Client-side only (서버로 파일을 전송하지 않고 사용자의 브라우저 내에서 모든 데이터를 처리하여 보안성 극대화)"
+  },
+  "tech_stack": {
+    "frontend_framework": "React (주요 Hooks: useState, useEffect, useRef)",
+    "styling": "Tailwind CSS (유틸리티 클래스 기반 반응형 웹 디자인 적용)",
+    "icons": "Lucide-React (가볍고 직관적인 SVG 아이콘 적용)",
+    "pdf_libraries": [
+      {
+        "name": "pdf.js (v3.11.174)",
+        "role": "PDF 문서 파싱 및 각 페이지의 썸네일(Canvas) 렌더링",
+        "reason": "브라우저 환경에서 PDF 페이지를 시각적인 이미지로 변환하기 위한 모질라(Mozilla)의 강력한 오픈소스 라이브러리"
+      },
+      {
+        "name": "pdf-lib (v1.17.1)",
+        "role": "기존 PDF 원본 파일 로드, 특정 페이지 추출, 새로운 PDF로 병합 및 저장",
+        "reason": "JavaScript 환경에서 PDF 문서를 직접 생성하고 조작하는 데 특화된 경량 라이브러리"
+      }
+    ]
+  },
+  "development_process": [
+    {
+      "step": 1,
+      "phase": "기획 및 UI/UX 설계",
+      "details": "사용자가 3~5개의 PDF를 한 번에 업로드하고, 갤러리 형태의 썸네일을 통해 직관적으로 페이지를 선택/제외할 수 있는 인터페이스를 설계했습니다. '부정적인 요소를 비워낸다'는 메타포에 맞춰 부드러운 애니메이션과 감성적인 로딩 문구를 적용했습니다."
+    },
+    {
+      "step": 2,
+      "phase": "외부 라이브러리 비동기 로드 구성",
+      "details": "React 생명주기(useEffect)와 Promise를 활용한 useExternalScripts 커스텀 훅을 구현하여, CDN을 통해 pdf.js와 pdf-lib 스크립트를 동적으로 불러오고 Web Worker 설정을 초기화했습니다."
+    },
+    {
+      "step": 3,
+      "phase": "파일 업로드 및 썸네일 렌더링 (pdf.js 적용)",
+      "details": "사용자가 업로드한 다중 File 객체를 ArrayBuffer로 변환 후 pdf.js의 getDocument API로 읽어들였습니다. 메모리 최적화를 위해 scale을 0.6으로 낮추어 Canvas에 렌더링한 후, toDataURL을 이용해 Base64 이미지로 변환하여 썸네일로 활용했습니다."
+    },
+    {
+      "step": 4,
+      "phase": "상태 관리 및 사용자 상호작용 구현",
+      "details": "추출된 모든 페이지의 정보를 배열 형태의 State(pages)로 관리합니다. 사용자가 썸네일을 클릭할 때마다 해당 객체의 'selected' 속성을 토글(Boolean)하여, UI 상에 즉각적인 피드백(흑백 처리 및 제외 아이콘)이 나타나도록 구현했습니다."
+    },
+    {
+      "step": 5,
+      "phase": "메모리 분리 이슈 해결 (Troubleshooting)",
+      "details": "초기 구현 시 pdf.js가 성능 향상을 위해 Web Worker로 ArrayBuffer를 넘기면서 메인 스레드에서 데이터가 분리(Detach)되는 문제가 발생했습니다. 이를 해결하기 위해 arrayBuffer.slice(0) 메서드를 사용하여 pdf-lib(병합용)와 pdf.js(미리보기용)에 각각 독립된 메모리 복사본을 제공하여 충돌을 방지했습니다."
+    },
+    {
+      "step": 6,
+      "phase": "PDF 병합 및 로컬 다운로드 (pdf-lib 적용)",
+      "details": "사용자가 남기기로 선택한 페이지(selected: true) 정보만 모아 필터링한 후, pdf-lib를 이용해 새로운 비어있는 PDFDocument 객체를 생성했습니다. copyPages 메서드를 통해 원본의 특정 페이지만 추출하여 새 문서에 순차적으로 더한 뒤, Blob 객체와 URL.createObjectURL을 활용해 브라우저 단에서 즉시 다운로드 되도록 마무리했습니다."
+    }
+  ]
+}
