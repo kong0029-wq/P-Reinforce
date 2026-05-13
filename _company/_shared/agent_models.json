@@ -1,7 +1,7 @@
 {
   "ceo": "gemma4:e2b",
   "secretary": "gemma4:latest",
-  "youtube": "qwen/qwen3.5-9b",
+  "youtube": "google/gemma-4-e2b",
   "researcher": "qwen/qwen3.5-9b",
   "business": "qwen/qwen3.5-9b",
   "writer": "qwen/qwen3.5-9b",
