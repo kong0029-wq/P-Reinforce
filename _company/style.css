@@ -1,0 +1,68 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* 연한 하늘색 배경 */
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+#game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+h1 {
+    color: #ff9900; /* 주황색 제목 */
+}
+
+.stats p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+#foodLevel, #growthLevel {
+    font-weight: bold;
+    color: #4CAF50; /* 녹색 강조 */
+}
+
+.actions button {
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#feedButton {
+    background-color: #2196F3; /* 파란색 */
+    color: white;
+}
+
+#buyChickButton {
+    background-color: #FFC107; /* 노란색 */
+    color: #333;
+}
+
+#updateGameButton {
+    background-color: #4CAF50; /* 녹색 */
+    color: white;
+}
+
+.actions button:hover {
+    opacity: 0.9;
+}
+
+#message {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #e8f5e9;
+    border-radius: 5px;
+    min-height: 40px;
+}
