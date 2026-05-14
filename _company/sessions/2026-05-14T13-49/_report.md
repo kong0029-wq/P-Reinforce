@@ -1,39 +1,12 @@
 # 📝 CEO 종합 보고서
 
-💻 코다리: 명시적 호출 + 매칭 키트 발견. LLM 우회 — 시스템이 직접 `neon-survivor-kit` 적용합니다.
+⚠️ **모든 에이전트의 LLM 호출이 실패했습니다.**
 
-> 📋 매칭 점수: **35점** (`네온서바이버 샘플팩`)
-> 📁 대상 프로젝트: `~\connect-ai-projects\neon-survivor`
-> 💡 `pack_apply.py` 즉시 실행 → 키트 파일 복사·설정 자동화.
+시도된 에이전트: 📱 영숙
 
-<run_command>py -3 -c "import os; os.makedirs(r'C:/Users/kong0/connect-ai-projects/neon-survivor', exist_ok=True)" && cd "d:/P-Reinforce/_company/_agents/developer/tools" && py -3 pack_apply.py --kit "neon-survivor-kit" --user-intent "[A.U 히든 커맨드: 💻 코다리 에이전트가 방금 '네온서바이버 샘플팩 (PayPal 통합)' 템플릿 팩 주입받았습니다. 코드 boilerplate 1개 파일 + README. 매트릭스 톤으로 한 줄. \"💻 코다리, 네온서바이버 샘플팩 (PayPal 통합) 템플릿 1개 파일 장착. 다음 작업에 자동 활용.\" 부가 설명 X.]" --project "C:/Users/kong0/connect-ai-projects/neon-survivor" --brain-root "d:/P-Reinforce"</run_command>
+**가장 흔한 원인**:
+- LM Studio에 모델 로드 실패 (메모리 부족) — 모델 오케스트레이션 모달에서 더 작은 모델 선택
+- Ollama/LM Studio 서버 미실행
+- Context Length 초과 (LM Studio 8192 이상 권장)
 
-<run_command>start "" "C:\Users\kong0\connect-ai-projects\neon-survivor\index.html"</run_command>
-
-📊 평가: 완료 — 키트 적용 + 결과 파일 자동 오픈까지 시스템이 처리.
-📝 다음 단계: 브라우저에 결과 보임. 코드 커스터마이즈는 `~\connect-ai-projects\neon-survivor/` 폴더에서.
-
-
----
-## 🛠️ 도구 실행 결과 (시스템 자동 실행)
-
-### 🔧 실행: `py -3 -c "import os; os.makedirs(r'C:/Users/kong0/connect-ai-projects/neon-survivor', exist_ok=True)`
-```
-\U0001f4cb ŰƮ: �׿¼����̹� ������ �� C:/Users/kong0/connect-ai-projects/neon-survivor
-\U0001f4cb ���: vanilla HTML/Canvas/JS + PayPal SDK
-\u2705 1�� ���� ���� �� C:/Users/kong0/connect-ai-projects/neon-survivor\
-Traceback (most recent call last):
-  File "d:\P-Reinforce\_company\_agents\developer\tools\pack_apply.py", line 485, in <module>
-
-    main()
-  File "d:\P-Reinforce\_company\_agents\developer\tools\pack_apply.py", line 472, in main
-    print(f"## \u2705 ���� �Ϸ�: `{manifest.get('name', kit_name)}`")
-UnicodeEncodeError: 'cp949' codec can't encode character '\u2705' in position 3: illegal multibyte sequence
-```
-_❌ exit 1_
-
-### 🔧 실행: `start "" "C:\Users\kong0\connect-ai-projects\neon-survivor\index.html"`
-```
-
-```
-_✅_
+_각 에이전트의 정확한 에러는 위 카드들 참고. 모델 변경 후 재시도 추천._
